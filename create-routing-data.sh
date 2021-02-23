@@ -21,9 +21,8 @@ PLANET_SOURCE="/planet/$PLANET"
 # for the case that a non-empty directory was mounted into the container
 TEMP_BASE="/brouter-tmp/tmp"
 
-echo "$(date) Updating Planet file ..."
-
 if [[ "$PLANET_UPDATE" = "1" ]]; then
+    echo "$(date) Updating Planet file ..."
     rm -vf "/planet/$PLANET.old.osm.pbf"
     rm -vf "/planet/$PLANET.new.osm.pbf"
     touch /planet/mapsnapshottime.txt
