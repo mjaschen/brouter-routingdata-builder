@@ -8,6 +8,8 @@ This Docker image allows to build the routing data files (`.rd5`) for BRouter.
 docker build -t brouter-routingdata-builder .
 ```
 
+A built Docker image is available at <https://github.com/users/mjaschen/packages/container/package/brouter-routingdata-builder>.
+
 ## Building Routing Data
 
 Building the routing data for the first time consists of four steps:
