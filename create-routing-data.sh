@@ -33,7 +33,6 @@ if [[ "$PLANET_UPDATE" = "1" ]]; then
         --drop-author \
         --compression-level=1 \
         --tempfiles="/brouter-tmp/osmupdate/" \
-        --keep-tempfiles \
         "/planet/$PLANET" \
         "/planet/$PLANET.new.osm.pbf" \
         || { echo "Updating Planet failed" ; exit 2 ; }
