@@ -33,7 +33,9 @@ docker build -t brouter-routingdata-builder .
 
 For smaller regions and/or testing purposes, a smaller extract of the planet can be used, e.g. for Europe, a single country or an even smaller region. Geofabrik offers [extracts for all regions and countries](https://download.geofabrik.de/index.html). Download a file in **.osm.pbf** format.
 
-Store the planet file into a directory on the host system.
+Another option for getting custom planet files, especially for very small extracts (town and city level, smaller regions) is the [BBBike Extract Service](https://extract.bbbike.org/). Choose *Protocolbuffer (PBF)* as format here.
+
+Store the downloaded planet file into a directory on the host system.
 
 ## Downloading SRTM Elevation Data
 
