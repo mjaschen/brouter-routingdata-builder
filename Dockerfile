@@ -1,4 +1,5 @@
-# Step 1: Build osmctools (osmupdate, osmconvert)
+# Step 1: Custom build osmctools (osmupdate, osmconvert)
+# @see https://www.marcusjaschen.de/blog/2021/osmupdate-error-timestamp/
 
 FROM debian:buster-slim as osmctools
 
@@ -25,7 +26,7 @@ RUN git clone https://github.com/abrensch/brouter.git /brouter-build
 
 WORKDIR /brouter-build
 
-RUN mvn package -pl brouter-server -am -Dmaven.javadoc.skip=true
+RUN mvn package -q -pl brouter-server -am -Dmaven.javadoc.skip=true
 
 RUN apt-get update \
     && apt-get install -y ca-certificates curl \
