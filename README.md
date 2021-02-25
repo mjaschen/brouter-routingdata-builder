@@ -2,29 +2,21 @@
 
 This Docker image allows to build the routing data files (`.rd5`) for BRouter.
 
-## Building the Docker Image
-
-```
-docker build -t brouter-routingdata-builder .
-```
-
-A built Docker image is available at <https://github.com/users/mjaschen/packages/container/package/brouter-routingdata-builder>.
-
 ## Building Routing Data
 
 Building the routing data for the first time consists of four steps:
 
-1. Build the Docker image
+1. Pull the Docker image
 2. Download a planet file
 3. Download SRTM data
 4. Build the routing data
 
 For all subsequent builds running the last step is sufficient, as the planet data is updated automatically to the latest version in the build process and SRTM data doesn't change at all.
 
-## Building the Docker Image
+## Pull the Docker image:
 
 ```shell
-docker build -t brouter-routingdata-builder .
+docker pull mjaschen/brouter-routingdata-builder
 ```
 
 ## Downloading a Planet File
@@ -79,3 +71,11 @@ If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` 
 ## Benchmarks
 
 Updating the planet file and building routing data for the whole world takes about 3:45 h on an 8-core Xeon E3-1270 v3 @ 3.50GHz with 32 GiB RAM running Linux (`JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M`).
+
+## Development
+
+### Building the Docker Image
+
+```shell
+docker build -t brouter-routingdata-builder .
+```
