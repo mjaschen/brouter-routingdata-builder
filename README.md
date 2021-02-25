@@ -1,5 +1,7 @@
 # BRouter Routing Data Builder
 
+[![ci](https://github.com/mjaschen/brouter-routingdata-builder/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/mjaschen/brouter-routingdata-builder/actions/workflows/ci.yml)
+
 This Docker image allows to build the routing data files (`.rd5`) for BRouter.
 
 ## Building Routing Data
