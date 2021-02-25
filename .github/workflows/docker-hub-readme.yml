@@ -20,7 +20,7 @@ jobs:
         name: Docker Hub Description
         uses: peter-evans/dockerhub-description@v2
         with:
-        username: ${{ secrets.DOCKER_HUB_LOGIN }}
-        password: ${{ secrets.DOCKER_HUB_TOKEN }}
-        repository: ${{ github.repository }}
-        short-description: "One-stop solution to create routing data files (.rd5) for BRouter."
+          username: ${{ secrets.DOCKER_HUB_LOGIN }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          repository: ${{ github.repository }}
+          short-description: "One-stop solution to create routing data files (.rd5) for BRouter."
