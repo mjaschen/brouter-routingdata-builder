@@ -21,6 +21,7 @@ jobs:
         with:
           images: |
             ghcr.io/${{ github.repository }}
+            ${{ github.repository }}
           tag-sha: true
           tag-semver: |
             {{version}}
