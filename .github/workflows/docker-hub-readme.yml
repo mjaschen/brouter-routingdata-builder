@@ -13,13 +13,13 @@ jobs:
   dockerHubDescription:
     runs-on: ubuntu-latest
     steps:
-    -
-      name: Checkout Code
-      uses: actions/checkout@v2
-
-    - name: Docker Hub Description
-      uses: peter-evans/dockerhub-description@v2
-      with:
+      -
+        name: Checkout Code
+        uses: actions/checkout@v2
+      -
+        name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v2
+        with:
         username: ${{ secrets.DOCKER_HUB_LOGIN }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
         repository: ${{ github.repository }}
