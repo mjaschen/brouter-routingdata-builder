@@ -1,0 +1,24 @@
+name: Update Docker Hub Description
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*.*.*"
+    paths:
+      - README.md
+
+jobs:
+  dockerHubDescription:
+    runs-on: ubuntu-latest
+    steps:
+    -
+      name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_LOGIN }}
+        repository: ${{ github.repository }}
