@@ -6,8 +6,6 @@ on:
       - main
     tags:
       - "*.*.*"
-    paths:
-      - README.md
 
 jobs:
   dockerHubDescription:
