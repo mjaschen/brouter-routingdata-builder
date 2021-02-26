@@ -21,6 +21,12 @@ For all subsequent builds running the last step is sufficient, as the planet dat
 docker pull mjaschen/brouter-routingdata-builder
 ```
 
+or
+
+```shell
+docker pull ghcr.io/mjaschen/brouter-routingdata-builder
+```
+
 ## Downloading a Planet File
 
 [Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 55 GiB (February 2021).
