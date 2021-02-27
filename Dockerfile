@@ -1,26 +1,6 @@
-# Step 1: Custom build osmctools (osmupdate, osmconvert)
-# @see https://www.marcusjaschen.de/blog/2021/osmupdate-error-timestamp/
+# Step 1: Build BRouter and dependencies (Osmosis, PbfParser)
 
-FROM debian:buster-slim as osmctools
-
-RUN apt-get update \
-        && apt-get install -y \
-        dh-autoreconf \
-        gcc \
-        git \
-        zlib1g-dev
-
-RUN git clone https://github.com/mjaschen/osmctools.git /osmctools
-
-WORKDIR /osmctools
-
-RUN autoreconf --install
-RUN ./configure
-RUN make install
-
-# Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
-
-FROM maven:3-jdk-8 as build
+FROM maven:3-jdk-11 as build
 
 RUN git clone https://github.com/abrensch/brouter.git /brouter-build
 
@@ -39,16 +19,16 @@ WORKDIR /brouter-build/misc/pbfparser
 RUN javac -d . -cp "/brouter-build/brouter-server/target/brouter-server-1.6.1-jar-with-dependencies.jar:/osmosis-src/lib/default/protobuf-java-3.12.2.jar:/osmosis-src/lib/default/osmosis-osm-binary-0.48.3.jar" *.java \
     && jar cf pbfparser.jar btools/**/*.class
 
-# Step 3: collect needed tools + JARs + processing script and run script
+# Step 2: Collect needed tools + JARs + processing script and run script
 
-FROM openjdk:8-jdk-buster
+FROM openjdk:17-jdk-buster
+
+RUN apt-get update \
+    && apt-get install -y osmctools
 
 RUN git clone https://github.com/abrensch/brouter.git /brouter-source
 
 WORKDIR /brouter
-
-COPY --from=osmctools /usr/local/bin/osmconvert /osmctools/osmconvert
-COPY --from=osmctools /usr/local/bin/osmupdate /osmctools/osmupdate
 
 RUN cp -Rv /brouter-source/misc/profiles2/* /brouter/
 RUN cp -Rv /brouter-source/misc/pbfparser /brouter/pbfparser
