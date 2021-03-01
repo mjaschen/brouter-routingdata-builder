@@ -17,6 +17,11 @@ fi
 
 PLANET_SOURCE="/planet/$PLANET"
 
+if [[ ! -f "$PLANET_SOURCE" ]]; then
+    echo "Planet file not found: $PLANET_SOURCE"
+    exit 2
+fi
+
 # add an additional sub-directory to prevent accidentally deleting stuff
 # for the case that a non-empty directory was mounted into the container
 TEMP_BASE="/brouter-tmp/tmp"
