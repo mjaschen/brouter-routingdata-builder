@@ -85,7 +85,7 @@ Updating the planet file and building routing data for the whole world takes abo
 ### Building the Docker Image
 
 ```shell
-docker build -t brouter-routingdata-builder .
+docker build --pull -t brouter-routingdata-builder .
 ```
 
 The image is built automatically with Github Actions when either a tag or the *main* branch is pushed. After a successful build the image is deployed to [Github Container Registry](https://github.com/users/mjaschen/packages/container/package/brouter-routingdata-builder) and [Docker Hub](https://hub.docker.com/r/mjaschen/brouter-routingdata-builder).

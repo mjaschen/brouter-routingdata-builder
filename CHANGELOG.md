@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Changed
+
+- current BRouter upstream (updated lookups.dat)
+
 ## 0.1.3
 
 ### Added
@@ -8,7 +14,7 @@
 
 ## 0.1.2
 
-## Added
+### Added
 
 - Github Actions workflow for building and pushing the Docker image to Github Container Registry
 
