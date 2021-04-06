@@ -29,7 +29,7 @@ docker pull ghcr.io/mjaschen/brouter-routingdata-builder
 
 ## Downloading a Planet File
 
-[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 55 GiB (February 2021).
+[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 57 GiB (April 2021).
 
 For smaller regions and/or testing purposes, a smaller extract of the planet can be used, e.g. for Europe, a single country or an even smaller region. Geofabrik offers [extracts for all regions and countries](https://download.geofabrik.de/index.html). Download a file in **.osm.pbf** format.
 
