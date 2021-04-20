@@ -78,7 +78,12 @@ If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` 
 
 ## Benchmarks
 
-Updating the planet file and building routing data for the whole world takes about 3:45 h on an 8-core Xeon E3-1270 v3 @ 3.50GHz with 32 GiB RAM running Linux (`JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M`).
+Updating the planet file and building routing data for the whole world takes several hours depending on the available system ressources:
+
+|Build Time|CPU|RAM|OS|Remarks|
+|---------:|---|--:|--|-------|
+| 3:45 h   | Xeon E3-1270 v3 @ 3.50GHz (8 cores) | 32 GiB | Linux | `JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M` |
+| 2:49 h   | AMD Ryzen 9 5950X (16 cores) | 128 GiB | Linux | `JAVA_OPTS="-Xmx30720M -Xms30720M -Xmn1024M"` |
 
 ## Development
 
