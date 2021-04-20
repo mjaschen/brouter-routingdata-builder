@@ -59,7 +59,7 @@ docker run --rm \
     --volume /tank/brouter/planet:/planet \
     --volume /tank/brouter/srtm:/srtm:ro \
     --volume /tank/brouter/segments:/segments \
-    brouter-routingdata-builder
+    mjaschen/brouter-routingdata-builder
 ```
 
 Let's take a closer look on what happens here:
