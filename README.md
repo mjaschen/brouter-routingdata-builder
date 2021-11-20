@@ -81,7 +81,7 @@ If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` 
 Updating the planet file and building routing data for the whole world takes several hours depending on the available system ressources:
 
 |Build Time|CPU|RAM|Disk|OS|Remarks|
-|---------:|---|--:|--|-------|
+|---------:|---|--:|----|--|-------|
 | 3:45 h   | Xeon E3-1270 v3 @ 3.50GHz (8 cores) | 32 GiB | 4x HGST HUH721010ALE600 10 TB, ZFS RAID-Z | Linux | `JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M` |
 | 2:49 h   | AMD Ryzen 9 5950X (16 cores) | 128 GiB | 2x SAMSUNG MZQLB3T8HALS-00007 4 TB NVME, RAID 1 | Linux | `JAVA_OPTS="-Xmx30720M -Xms30720M -Xmn1024M"` |
 
