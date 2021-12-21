@@ -84,6 +84,7 @@ Updating the planet file and building routing data for the whole world takes sev
 |---------:|---|--:|----|--|-------|
 | 3:45 h   | Xeon E3-1270 v3 @ 3.50GHz (8 cores) | 32 GiB | 4x HGST HUH721010ALE600 10 TB, ZFS RAID-Z | Linux | `JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M` |
 | 2:49 h   | AMD Ryzen 9 5950X (16 cores) | 128 GiB | 2x SAMSUNG MZQLB3T8HALS-00007 4 TB NVME, RAID 1 | Linux | `JAVA_OPTS="-Xmx30720M -Xms30720M -Xmn1024M"` |
+| 3:21 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx20G -Xms20G -Xmn20G"` |
 
 ## Development
 
