@@ -6,6 +6,10 @@ WORKDIR /src
 
 RUN ["git", "clone", "https://github.com/abrensch/brouter.git"]
 
+WORKDIR /src/brouter
+
+RUN ["git", "checkout", "43028e0722517cfea3f6825beaef656e3917b594"]
+
 # Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
 
 FROM gradle:7-jdk17 as build
