@@ -52,7 +52,7 @@ It's also possible to download the whole set at <https://drive.google.com/folder
 
 ``` shell
 docker run --rm \
-    --user "$(id -u):$(id -g)"
+    --user "$(id -u):$(id -g)" \
     --env PLANET=slovenia-latest.osm.pbf \
     --env JAVA_OPTS="-Xmx2048M -Xms2048M -Xmn256M" \
     --volume /tank/brouter/tmp:/brouter-tmp \
