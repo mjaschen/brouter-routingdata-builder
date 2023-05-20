@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1
+
+### Added
+
+- build arm64 images on Github Actions and push to registries
+
 ## 0.5.0
 
 ### Added
