@@ -1,20 +1,21 @@
 # Changelog
 
-## 0.5.1
+## 1.1.0
 
-### Added
+### Changed
 
-- build arm64 images on Github Actions and push to registries
+- pin BRouter version to 11a9843f4 (before merge of changed PBF parsing)
 
-## 0.5.0
+## 1.0.0
 
 ### Added
 
 - support for multi-platform images (amd64/arm64)
+- build arm64 images on Github Actions and push to registries
 
 ### Changed
 
-- build from latest BRouter upstream (1.7.x)
+- build from a recent BRouter upstream (1.7.x, 2023-05-17)
 - update some base images in Dockerfile (needed for multi-platform support)
 
 ## 0.4.0
