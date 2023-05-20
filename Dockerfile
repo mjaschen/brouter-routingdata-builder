@@ -8,7 +8,7 @@ RUN ["git", "clone", "https://github.com/abrensch/brouter.git"]
 
 WORKDIR /src/brouter
 
-# RUN ["git", "checkout", "43028e0722517cfea3f6825beaef656e3917b594"]
+RUN ["git", "checkout", "c0245df07b79bc191b8c439898316b21c9aee0d5"]
 
 # Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
 
