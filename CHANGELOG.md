@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.0
+
+### Added
+
+- support for multi-platform images (amd64/arm64)
+
+### Changed
+
+- build from latest BRouter upstream (1.7.x)
+- update some base images in Dockerfile (needed for multi-platform support)
+
+## 0.4.0
+
+### Changed
+
+- adjustments for new Gradle-based build process
+
 ## 0.3.0
 
 ### Changed
