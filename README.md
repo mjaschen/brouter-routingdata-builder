@@ -15,7 +15,7 @@ Building the routing data for the first time consists of four steps:
 
 For all subsequent builds running the last step is sufficient, as the planet data is updated automatically to the latest version in the build process and SRTM data doesn't change at all.
 
-## Pull the Docker image:
+## Pull the Docker image
 
 ```shell
 docker pull mjaschen/brouter-routingdata-builder
@@ -74,7 +74,6 @@ Let's take a closer look on what happens here:
 - `--volume /tank/brouter/segments:/segments`: that's the target directory where the created routing data files (.rd5) will be stored
 
 If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` as option. In this case the directory which contains the planet file can be mounted read-only.
-
 
 ## Benchmarks
 
