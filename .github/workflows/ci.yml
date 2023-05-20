@@ -55,9 +55,11 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       -
-        name: Build and Push Docker Image
+        name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          push: true
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          context: .
+          platforms: ${{ env.BUILD_PLATFORMS }}
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
