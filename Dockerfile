@@ -43,7 +43,7 @@ ARG BROUTER_VERSION=1.7.1-beta-1
 ARG OSMOSIS_VERSION=0.48.3
 
 RUN apt-get update \
-    && apt-get install -y osmctools
+    && apt-get install -y apt-utils osmctools
 
 COPY --from=clone /src/brouter /brouter-source
 
