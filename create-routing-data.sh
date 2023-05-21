@@ -55,7 +55,8 @@ mkdir -v nodes55
 echo "$(date) Running OsmFastCutter ..."
 
 java $JAVA_OPTS \
-    -cp /brouter/pbfparser/pbfparser.jar:/brouter/brouter.jar:/brouter/pbfparser/osmosis.jar:/brouter/pbfparser/protobuf.jar \
+    -cp /brouter/brouter.jar \
+    -DavoidMapPolling=true \
     -Ddeletetmpfiles=false \
     -DuseDenseMaps=true \
     btools.mapcreator.OsmFastCutter \

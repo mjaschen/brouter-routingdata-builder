@@ -8,7 +8,7 @@ RUN ["git", "clone", "https://github.com/abrensch/brouter.git"]
 
 WORKDIR /src/brouter
 
-RUN ["git", "checkout", "11a9843f417d231e724058bad41ca6218819b4b1"]
+# RUN ["git", "checkout", "11a9843f417d231e724058bad41ca6218819b4b1"]
 
 # Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
 
@@ -33,11 +33,6 @@ RUN apt-get update \
     && curl --location --output /osmosis-src/osmosis-${OSMOSIS_VERSION}.tgz https://github.com/openstreetmap/osmosis/releases/download/${OSMOSIS_VERSION}/osmosis-${OSMOSIS_VERSION}.tgz \
     && tar -xvzf /osmosis-src/osmosis-${OSMOSIS_VERSION}.tgz -C /osmosis-src
 
-WORKDIR /brouter-build/misc/pbfparser
-
-RUN javac -d . -cp "/brouter-build/brouter-server/build/libs/brouter-${BROUTER_VERSION}-all.jar:/osmosis-src/lib/default/protobuf-java-3.12.2.jar:/osmosis-src/lib/default/osmosis-osm-binary-${OSMOSIS_VERSION}.jar" *.java \
-    && jar cf pbfparser.jar btools/**/*.class
-
 # Step 3: Collect needed tools + JARs + processing script and run script
 
 FROM eclipse-temurin:17-jdk-jammy
@@ -55,11 +50,7 @@ COPY --from=clone /src/brouter /brouter-source
 WORKDIR /brouter
 
 RUN cp -Rv /brouter-source/misc/profiles2/* /brouter/
-RUN cp -Rv /brouter-source/misc/pbfparser /brouter/pbfparser
 COPY --from=build /brouter-build/brouter-server/build/libs/brouter-${BROUTER_VERSION}-all.jar brouter.jar
-COPY --from=build /osmosis-src/lib/default/protobuf-java-3.12.2.jar /brouter/pbfparser/protobuf.jar
-COPY --from=build /osmosis-src/lib/default/osmosis-osm-binary-${OSMOSIS_VERSION}.jar /brouter/pbfparser/osmosis.jar
-COPY --from=build /brouter-build/misc/pbfparser/pbfparser.jar /brouter/pbfparser/pbfparser.jar
 
 COPY create-routing-data.sh /brouter/create-routing-data.sh
 
