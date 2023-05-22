@@ -31,7 +31,7 @@ if [[ "$PLANET_UPDATE" = "1" ]]; then
     rm -vf "/planet/$PLANET.old.osm.pbf"
     rm -vf "/planet/$PLANET.new.osm.pbf"
     touch /planet/mapsnapshottime.txt
-    [[ -d /brouter-tmp/osmupdate ]] || mkdir -p /brouter-tmp/osmupdate
+    mkdir -p /brouter-tmp/osmupdate
     /usr/bin/osmupdate \
         --verbose \
         --drop-author \
