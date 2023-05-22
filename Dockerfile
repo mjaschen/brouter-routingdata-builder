@@ -14,9 +14,6 @@ WORKDIR /src/brouter
 
 FROM gradle:7-jdk17 as build
 
-# Same version as in https://github.com/abrensch/brouter/blob/master/build.gradle
-# @TODO: parse version from Gradle config and pass as build arg
-ARG BROUTER_VERSION=1.7.1-beta-1
 ARG OSMOSIS_VERSION=0.48.3
 
 WORKDIR /brouter
@@ -37,11 +34,6 @@ RUN apt-get update \
 
 FROM eclipse-temurin:17-jdk-jammy
 
-# Same version as in https://github.com/abrensch/brouter/blob/master/build.gradle
-# @TODO: parse version from Gradle config and pass as build arg
-ARG BROUTER_VERSION=1.7.1-beta-1
-ARG OSMOSIS_VERSION=0.48.3
-
 RUN apt-get update \
     && apt-get install -y apt-utils osmctools
 
@@ -50,7 +42,7 @@ COPY --from=clone /src/brouter /brouter-source
 WORKDIR /brouter
 
 RUN cp -Rv /brouter-source/misc/profiles2/* /brouter/
-COPY --from=build /brouter-build/brouter-server/build/libs/brouter-${BROUTER_VERSION}-all.jar brouter.jar
+COPY --from=build /brouter-build/brouter-server/build/libs/brouter-*-all.jar brouter.jar
 
 COPY create-routing-data.sh /brouter/create-routing-data.sh
 
