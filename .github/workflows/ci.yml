@@ -2,6 +2,7 @@ name: ci
 
 on:
   push:
+  pull_request:
 
 env:
   BUILD_PLATFORMS: "linux/amd64,linux/arm64"
