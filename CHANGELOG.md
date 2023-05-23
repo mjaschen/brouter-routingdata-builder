@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+### Changed
+
+- updates for latest BRouter version
+
 ## 1.1.0
 
 ### Changed
