@@ -5,7 +5,7 @@
 
 ### Changed
 
-- updates for latest BRouter version (03aab82e1e22306495e5807ef52e4dbf506bf280)
+- update to latest BRouter ([03aab82e1](https://github.com/abrensch/brouter/commit/03aab82e1e22306495e5807ef52e4dbf506bf280))
 
 ## 2.0.0
 
