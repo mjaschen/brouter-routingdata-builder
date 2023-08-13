@@ -14,11 +14,9 @@ RUN ["git", "log", "-n", "1", "--pretty=format:%H"]
 RUN ["echo", "lookups.dat version:"]
 RUN ["head", "-n2", "/src/brouter/misc/profiles2/lookups.dat"]
 
-# Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
+# Step 2: Build BRouter and dependencies
 
 FROM gradle:7-jdk17 as build
-
-ARG OSMOSIS_VERSION=0.48.3
 
 WORKDIR /brouter
 
@@ -27,12 +25,6 @@ COPY --from=clone /src/brouter /brouter-build
 WORKDIR /brouter-build
 
 RUN ["gradle", "clean", "build", "fatJar"]
-
-RUN apt-get update \
-    && apt-get install -y ca-certificates curl \
-    && mkdir -p /osmosis-src \
-    && curl --location --output /osmosis-src/osmosis-${OSMOSIS_VERSION}.tgz https://github.com/openstreetmap/osmosis/releases/download/${OSMOSIS_VERSION}/osmosis-${OSMOSIS_VERSION}.tgz \
-    && tar -xvzf /osmosis-src/osmosis-${OSMOSIS_VERSION}.tgz -C /osmosis-src
 
 # Step 3: Collect needed tools + JARs + processing script and run script
 
