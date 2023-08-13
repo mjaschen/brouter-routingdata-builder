@@ -33,11 +33,9 @@ FROM eclipse-temurin:17-jdk-jammy
 RUN apt-get update \
     && apt-get install -y apt-utils osmctools
 
-COPY --from=clone /src/brouter /brouter-source
-
 WORKDIR /brouter
 
-RUN cp -Rv /brouter-source/misc/profiles2/* /brouter/
+COPY --from=clone /src/brouter/misc/profiles2/* /brouter/
 COPY --from=build /brouter-build/brouter-server/build/libs/brouter-*-all.jar brouter.jar
 
 COPY create-routing-data.sh /brouter/create-routing-data.sh
