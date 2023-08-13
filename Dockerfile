@@ -14,8 +14,6 @@ RUN ["git", "log", "-n", "1", "--pretty=format:%H"]
 RUN ["echo", "lookups.dat version:"]
 RUN ["head", "-n2", "/src/brouter/misc/profiles2/lookups.dat"]
 
-# RUN ["git", "checkout", "11a9843f417d231e724058bad41ca6218819b4b1"]
-
 # Step 2: Build BRouter and dependencies (Osmosis, PbfParser)
 
 FROM gradle:7-jdk17 as build
