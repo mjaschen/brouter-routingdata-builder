@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0
+
+### Changed
+
+- Cleanup in Dockerfile, remove no longer needed dependency on Osmosis
+- Use timestamp of planet file as map snapshot time when planet update is disabled
 
 ## 2.1.0
 
