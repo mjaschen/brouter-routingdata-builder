@@ -41,6 +41,9 @@ if [[ "$PLANET_UPDATE" = "1" ]]; then
         "/planet/$PLANET.new.osm.pbf" \
         || { echo "Updating Planet failed" ; exit 2 ; }
     PLANET_SOURCE="/planet/$PLANET.new.osm.pbf"
+else
+    echo "$(date) Using Planet file without updating: $PLANET_SOURCE"
+    touch -r "$PLANET_SOURCE" /planet/mapsnapshottime.txt
 fi
 
 [[ -d "$TEMP_BASE" ]] && rm -rf "$TEMP_BASE"
