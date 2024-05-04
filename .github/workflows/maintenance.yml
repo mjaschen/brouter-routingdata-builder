@@ -17,7 +17,7 @@ jobs:
     steps:
 
       - name: Remove old untagged images
-        uses: actions/delete-package-versions@v4
+        uses: actions/delete-package-versions@v5
         with:
           package-name: "brouter-routingdata-builder"
           package-type: "container"
