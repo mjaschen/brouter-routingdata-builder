@@ -2,11 +2,15 @@
 
 FROM alpine/git as clone
 
+ARG BROUTER_VERSION=master
+
 WORKDIR /src
 
 RUN ["git", "clone", "https://github.com/abrensch/brouter.git"]
 
 WORKDIR /src/brouter
+
+RUN git checkout "$BROUTER_VERSION"
 
 RUN ["echo", "BRouter commit:"]
 RUN ["git", "log", "-n", "1", "--pretty=format:%H"]
