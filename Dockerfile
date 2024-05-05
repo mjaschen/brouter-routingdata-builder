@@ -6,7 +6,7 @@ ARG BROUTER_VERSION=master
 
 WORKDIR /src
 
-RUN ["git", "clone", "https://github.com/abrensch/brouter.git"]
+RUN ["git", "clone", "--depth", "1", "https://github.com/abrensch/brouter.git"]
 
 WORKDIR /src/brouter
 
@@ -44,9 +44,6 @@ COPY --from=build /brouter-build/brouter-server/build/libs/brouter-*-all.jar bro
 
 COPY create-routing-data.sh /brouter/create-routing-data.sh
 
-VOLUME ["/brouter-tmp"]
-VOLUME ["/planet"]
-VOLUME ["/srtm"]
-VOLUME ["/segments"]
+VOLUME ["/brouter-tmp", "/planet", "/srtm", "/segments"]
 
 ENTRYPOINT ["/bin/bash", "/brouter/create-routing-data.sh"]
