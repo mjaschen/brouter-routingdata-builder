@@ -4,6 +4,12 @@
 
 This Docker image allows to build the routing data files (`.rd5`) for BRouter.
 
+## Requirements
+
+At least 250 GiB of free disk space is required to build the routing data for the whole world.
+
+At least 8 GiB of RAM is required to build the routing data for the whole world, at least 16 GiB is recommended.
+
 ## Building Routing Data
 
 Building the routing data for the first time consists of four steps:
@@ -29,7 +35,7 @@ docker pull ghcr.io/mjaschen/brouter-routingdata-builder
 
 ## Downloading a Planet File
 
-[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 70 GiB (August 2023).
+[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 75 GiB (May 2024).
 
 For smaller regions and/or testing purposes, a smaller extract of the planet can be used, e.g. for Europe, a single country or an even smaller region. Geofabrik offers [extracts for all regions and countries](https://download.geofabrik.de/index.html). Download a file in **.osm.pbf** format.
 
@@ -88,8 +94,9 @@ Updating the planet file and building routing data for the whole world takes sev
 | 3:20 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx9G -Xms9G"` |
 | 3:21 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx10G -Xms10G"` |
 | 3:21 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx20G -Xms20G"` |
+| 5:13 h   | Ampere Altra (16 shared ARM cores, Hetzner CAX41) | 32 GiB | shared NVMe | Linux | `JAVA_OPTS="-Xmx10G -Xms10G"` |
 
-It seems that no more than 10 GB of heap memory is required to create routing data for the whole planet in a minimum of time (see last lines in the table).
+It seems that no more than 10 GB of heap memory is required to create routing data for the whole planet in a minimum of time.
 
 ## Development
 
