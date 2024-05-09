@@ -83,6 +83,8 @@ If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` 
 
 ## Benchmarks
 
+### Planet
+
 Updating the planet file and building routing data for the whole world takes several hours depending on the available system ressources:
 
 |Build Time|CPU|RAM|Disk|OS|Remarks|
@@ -94,9 +96,16 @@ Updating the planet file and building routing data for the whole world takes sev
 | 3:20 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx9G -Xms9G"` |
 | 3:21 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx10G -Xms10G"` |
 | 3:21 h   | AMD Ryzen 5 3600 (6 cores) | 64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z | Linux | `JAVA_OPTS="-Xmx20G -Xms20G"` |
-| 5:13 h   | Ampere Altra (16 shared ARM cores, Hetzner CAX41) | 32 GiB | shared NVMe | Linux | `JAVA_OPTS="-Xmx10G -Xms10G"` |
+| 4:58 h - 5:13 h  | Ampere Altra (16 shared ARM cores, Hetzner CAX41) | 32 GiB | shared NVMe | Linux | `JAVA_OPTS="-Xmx16G -Xms16G"` |
+| 3:56 h   | Apple Silicon M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS="-Xmx20G -Xms20G"` |
 
 It seems that no more than 10 GB of heap memory is required to create routing data for the whole planet in a minimum of time.
+
+### Extracts/Regions
+
+|Region|Build Time|Machine|CPU|RAM|Disk|OS|Remarks|
+|---|---------:|---|---|--:|----|--|-------|
+| Germany | 10:05&nbsp;min   | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx20G -Xms20G`, skipped planet file update |
 
 ## Development
 
