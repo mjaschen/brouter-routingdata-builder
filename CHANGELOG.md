@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.0.0
+
+### Added
+
+- support for high resolution SRTM data (1 arc second) in BEF format
+
+### Changed
+
+- depend on BRouter 1.7.7
+
+## 3.0.0
+
+### Changed
+
+- depend on BRouter 1.7.4
+
 ## 2.2.0
 
 ### Changed
