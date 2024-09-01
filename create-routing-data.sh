@@ -93,7 +93,8 @@ java $JAVA_OPTS \
     unodes55 \
     bordernids.dat \
     bordernodes.dat \
-    /srtm
+    /srtm1 \
+    /srtm3
 
 echo "$(date) Running WayLinker ..."
 
