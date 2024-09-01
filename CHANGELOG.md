@@ -9,6 +9,7 @@
 ### Changed
 
 - depend on BRouter 1.7.7
+- depend on JDK 22
 
 ## 3.0.0
 
