@@ -1,6 +1,6 @@
 # Step 1: Check out latest BRouter sources
 
-FROM alpine/git as clone
+FROM alpine/git AS clone
 
 ARG BROUTER_VERSION=master
 
@@ -20,7 +20,7 @@ RUN ["head", "-n2", "/src/brouter/misc/profiles2/lookups.dat"]
 
 # Step 2: Build BRouter and dependencies
 
-FROM gradle:7-jdk17 as build
+FROM gradle:jdk-21-and-22-jammy AS build
 
 WORKDIR /brouter
 
@@ -32,7 +32,7 @@ RUN ["gradle", "clean", "build", "fatJar"]
 
 # Step 3: Collect needed tools + JARs + processing script and run script
 
-FROM eclipse-temurin:17-jdk-jammy
+FROM eclipse-temurin:22-jdk-noble
 
 RUN apt-get update \
     && apt-get install -y apt-utils osmctools
@@ -46,7 +46,8 @@ COPY create-routing-data.sh /brouter/create-routing-data.sh
 
 VOLUME ["/brouter-tmp"]
 VOLUME ["/planet"]
-VOLUME ["/srtm"]
+VOLUME ["/srtm1"]
+VOLUME ["/srtm3"]
 VOLUME ["/segments"]
 
 ENTRYPOINT ["/bin/bash", "/brouter/create-routing-data.sh"]
