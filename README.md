@@ -97,26 +97,27 @@ If updating the planet file isn't desired, just provide `--env PLANET_UPDATE=0` 
 
 Updating the planet file and building routing data for the whole world takes several hours depending on the available system ressources:
 
-|      Build Time | CPU                                               |     RAM | Disk                                            | OS       | Remarks                                       |
-| --------------: | ------------------------------------------------- | ------: | ----------------------------------------------- | -------- | --------------------------------------------- |
-|          3:45 h | Xeon E3-1270 v3 @ 3.50GHz (8 cores)               |  32 GiB | 4x HGST HUH721010ALE600 10 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M`    |
-|          2:49 h | AMD Ryzen 9 5950X (16 cores)                      | 128 GiB | 2x SAMSUNG MZQLB3T8HALS-00007 4 TB NVME, RAID 1 | Linux    | `JAVA_OPTS="-Xmx30720M -Xms30720M -Xmn1024M"` |
-|          3:33 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx6G -Xms6G"`                   |
-|          3:26 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx8G -Xms8G"`                   |
-|          3:20 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx9G -Xms9G"`                   |
-|          3:21 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx10G -Xms10G"`                 |
-|          3:21 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx20G -Xms20G"`                 |
-| 4:58 h - 5:13 h | Ampere Altra (16 shared ARM cores, Hetzner CAX41) |  32 GiB | shared NVMe                                     | Linux    | `JAVA_OPTS="-Xmx16G -Xms16G"`                 |
-|          3:56 h | Apple Silicon M1 Max (10 cores)                   |  64 GiB | Apple NVMe                                      | macOS 14 | `JAVA_OPTS="-Xmx20G -Xms20G"`                 |
+|      Build Time | CPU                                               |     RAM | Disk                                            | OS       | Remarks                                                                          |
+| --------------: | ------------------------------------------------- | ------: | ----------------------------------------------- | -------- | -------------------------------------------------------------------------------- |
+|          3:45 h | Xeon E3-1270 v3 @ 3.50GHz (8 cores)               |  32 GiB | 4x HGST HUH721010ALE600 10 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS=-Xmx15360M -Xms15360M -Xmn512M`                                       |
+|          2:49 h | AMD Ryzen 9 5950X (16 cores)                      | 128 GiB | 2x SAMSUNG MZQLB3T8HALS-00007 4 TB NVME, RAID 1 | Linux    | `JAVA_OPTS="-Xmx30720M -Xms30720M -Xmn1024M"`                                    |
+|          3:33 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx6G -Xms6G"`                                                      |
+|          3:26 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx8G -Xms8G"`                                                      |
+|          3:20 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx9G -Xms9G"`                                                      |
+|          3:21 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx10G -Xms10G"`                                                    |
+|          3:21 h | AMD Ryzen 5 3600 (6 cores)                        |  64 GiB | 4x TOSHIBA MG08ACA16TEY 16 TB, ZFS RAID-Z       | Linux    | `JAVA_OPTS="-Xmx20G -Xms20G"`                                                    |
+| 4:58 h - 5:13 h | Ampere Altra (16 shared ARM cores, Hetzner CAX41) |  32 GiB | shared NVMe                                     | Linux    | `JAVA_OPTS="-Xmx16G -Xms16G"`                                                    |
+|          3:56 h | Apple Silicon M1 Max (10 cores)                   |  64 GiB | Apple NVMe                                      | macOS 14 | `JAVA_OPTS="-Xmx20G -Xms20G"`                                                    |
+|          2:34 h | Apple Silicon M1 Max (10 cores)                   |  64 GiB | Apple NVMe                                      | macOS 14 | `JAVA_OPTS="-Xmx12G -Xms12G"`; BRouter 1.7.7 with high resolution elevation data |
 
 It seems that no more than 10 GB of heap memory is required to create routing data for the whole planet in a minimum of time.
 
 ### Extracts/Regions
 
-| Region  |     Build Time | Machine               | CPU                     |    RAM | Disk       | OS       | Remarks                                                                                      |
-| ------- | -------------: | --------------------- | ----------------------- | -----: | ---------- | -------- | -------------------------------------------------------------------------------------------- |
-| Germany | 10:05&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx20G -Xms20G`; skipped planet file update                                      |
-| Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; with high resolution elevation data |
+| Region  |     Build Time | Machine               | CPU                     |    RAM | Disk       | OS       | Remarks                                                                                                    |
+| ------- | -------------: | --------------------- | ----------------------- | -----: | ---------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| Germany | 10:05&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx20G -Xms20G`; skipped planet file update                                                    |
+| Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; BRouter 1.7.7 with high resolution elevation data |
 
 ## Development
 
