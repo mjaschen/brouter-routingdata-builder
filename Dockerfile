@@ -2,7 +2,7 @@
 
 FROM alpine/git AS clone
 
-ARG BROUTER_VERSION=master
+ARG BROUTER_VERSION=v1.7.8
 
 WORKDIR /src
 
