@@ -35,7 +35,7 @@ docker pull ghcr.io/mjaschen/brouter-routingdata-builder
 
 ## Downloading a Planet File
 
-[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 75 GiB (May 2024).
+[Planet OSM](https://planet.openstreetmap.org/) is the canonical source of planet files for the whole world. For building global routing data, download the *Latest Weekly Planet File* **in PBF format**. Warning: the planet file has a size of roughly 82 GiB (August 2025).
 
 For smaller regions and/or testing purposes, a smaller extract of the planet can be used, e.g. for Europe, a single country or an even smaller region. Geofabrik offers [extracts for all regions and countries](https://download.geofabrik.de/index.html). Download a file in **.osm.pbf** format.
 
@@ -118,6 +118,7 @@ It seems that no more than 10 GB of heap memory is required to create routing da
 | ------- | -------------: | --------------------- | ----------------------- | -----: | ---------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | Germany | 10:05&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx20G -Xms20G`; skipped planet file update                                                    |
 | Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; BRouter 1.7.7 with high resolution elevation data |
+| Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; BRouter 1.7.7 with high resolution elevation data |
 
 ## Development
 
@@ -128,3 +129,13 @@ docker build --pull -t brouter-routingdata-builder .
 ```
 
 The image is built automatically with Github Actions when either a tag or the *main* branch is pushed. After a successful build the image is deployed to [Github Container Registry](https://github.com/users/mjaschen/packages/container/package/brouter-routingdata-builder) and [Docker Hub](https://hub.docker.com/r/mjaschen/brouter-routingdata-builder).
+
+### Updating to a new version of BRouter
+
+- Update version string in `Dockerfile`:
+
+    ```Dockerfile
+    ARG BROUTER_VERSION=v1.7.8
+    ```
+
+- Commit, tag and push.
