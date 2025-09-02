@@ -118,7 +118,6 @@ It seems that no more than 10 GB of heap memory is required to create routing da
 | ------- | -------------: | --------------------- | ----------------------- | -----: | ---------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | Germany | 10:05&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx20G -Xms20G`; skipped planet file update                                                    |
 | Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; BRouter 1.7.7 with high resolution elevation data |
-| Europe  | 57:24&nbsp;min | Apple Mac Studio 2022 | Apple M1 Max (10 cores) | 64 GiB | Apple NVMe | macOS 14 | `JAVA_OPTS=-Xmx12G -Xms12G`; skipped planet file update; BRouter 1.7.7 with high resolution elevation data |
 
 ## Development
 
