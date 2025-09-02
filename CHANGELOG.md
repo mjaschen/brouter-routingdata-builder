@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Changed
+
+- depend on BRouter 1.7.8
+
 ## 4.0.0
 
 ### Added
